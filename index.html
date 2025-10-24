@@ -18,14 +18,14 @@
     </noscript>
     <div class="section">
         <h1>🫡欢迎使用 | 春日节点🍢</h1>
-        <h2 class="text-red mt-2"><a href="../虚拟商品购买与使用条款.html">🛒购前请阅《虚拟商品购买与使用条款》！</a></h2>
+        <h2 class="text-red mt-2"><a href="../虚拟商品购买与使用条款.html">🛒购前请阅《虚拟商品购买与使用条款》！！</a></h2>
         <h2 class="text-red mt-2"><a href="javascript:void(0)"
                 onclick="window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'});">📦查看套餐</a></h2>
     </div>
     <div class="section">
         <h2 class="titles">最新官网</h2>
         <ul>
-            <li> <a href="https://KasugaShio.pages.dev">https://KasugaShio.pages.dev（已作废）</a> </li>
+            <li> <a href="https://KasugaShio.pages.dev">https://KasugaShio.pages.dev</a> </li>
             <li> <a href="https://KasugaShio.github.io">https://KasugaShio.github.io</a> </li>
         </ul>
     </div>
@@ -236,26 +236,43 @@
 </div>
 
 <script>
-document.addEventListener('contextmenu', function(e) {
-  e.preventDefault();
-  alert("右键已禁用！");
-});
+    document.addEventListener('contextmenu', function (e) {
+        e.preventDefault();
+        alert("⚠️ 右键已禁用！");
+    });
+
+    document.addEventListener('keydown', function (e) {
+        // F12
+        if (e.key === "F12") {
+            e.preventDefault();
+            alert("⚠️ 开发者工具已禁用！");
+        }
+
+        if (e.ctrlKey && e.shiftKey && ['I', 'J', 'C'].includes(e.key.toUpperCase())) {
+            e.preventDefault();
+            alert("⚠️ 开发者工具已禁用！");
+        }
+
+        if (e.ctrlKey && e.key.toUpperCase() === 'U') {
+            e.preventDefault();
+            alert("⚠️ 查看源代码已禁用！");
+        }
+    });
+
+    document.body.style.userSelect = "none";
+
+    document.addEventListener('copy', function (e) {
+        e.preventDefault();
+        alert("⚠️ 复制内容已禁用！");
+    });
+
+    document.querySelectorAll('img').forEach(img => {
+        img.draggable = false;
+    });
 </script>
 
 <script>
-document.addEventListener('keydown', function(e) {
-  // F12、Ctrl+Shift+I/J/C、Ctrl+U
-  if (e.key === "F12" || 
-      (e.ctrlKey && e.shiftKey && ['I','J','C'].includes(e.key.toUpperCase())) || 
-      (e.ctrlKey && e.key.toUpperCase() === 'U')) {
-    e.preventDefault();
-    alert("开发者工具已禁用！");
-  }
-});
-</script>
-
-<script>
-document.addEventListener('copy', e => e.preventDefault());
+    document.addEventListener('copy', e => e.preventDefault());
 </script>
 
 <script>
@@ -263,8 +280,7 @@ document.addEventListener('copy', e => e.preventDefault());
     background.style.backgroundSize = "1000%";
     background.style.animation = "gradient 10s ease infinite";
 </script>
+
 </body>
-
-
 
 </html>
